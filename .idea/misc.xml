@@ -4,9 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.127" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/drawable/selector.xml" value="0.127" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/activity_about.xml" value="0.1734375" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/activity_dash_board.xml" value="0.2" />
         <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/activity_details.xml" value="0.2" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/activity_exit.xml" value="0.1" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/activity_first_screen.xml" value="0.2" />
         <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/activity_main.xml" value="0.1734375" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/activity_setting.xml" value="0.2" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/activity_settings.xml" value="0.1" />
         <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/headline_list_items.xml" value="0.1734375" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/layout/toolbar.xml" value="0.1734375" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/menu/menu1.xml" value="0.1734375" />
+        <entry key="..\:/Users/Akash/AndroidStudioProjects/java/News/app/src/main/res/menu/menu_navigation.xml" value="0.1734375" />
         <entry key="..\:/Users/Akash/AndroidStudioProjects/java/app/src/main/res/layout/activity_main.xml" value="0.1734375" />
         <entry key="..\:/Users/Akash/AndroidStudioProjects/java/app/src/main/res/layout/headline_list_items.xml" value="0.1734375" />
       </map>

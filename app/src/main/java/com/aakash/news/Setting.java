@@ -5,52 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.View;
 import android.widget.Toast;
-
-import com.aakash.news.Models.NewsHeadlines;
-import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.BuildConfig;
 
-public class DetailsActivity extends AppCompatActivity{
-
-    NewsHeadlines headlines;
-    TextView txt_title,txt_author,txt_time,txt_detail,txt_content;
-    ImageView img_news;
+public class Setting extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details);
+        setContentView(R.layout.activity_setting);
 
         //Initialize
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //Initialize
-        txt_title = findViewById(R.id.text_detail_title);
-        txt_author = findViewById(R.id.text_detail_author);
-        txt_time = findViewById(R.id.text_detail_time);
-        txt_detail = findViewById(R.id.text_detail_detail);
-        txt_content = findViewById(R.id.text_detail_content);
-        img_news = findViewById(R.id.img_detail_news);
-
-
-        //get
-        headlines = (NewsHeadlines) getIntent().getSerializableExtra("data");
-
-        //set
-        txt_title.setText(headlines.getTitle());
-        txt_author.setText(headlines.getAuthor());
-        txt_time.setText(headlines.getPublishedAt());
-        txt_detail.setText(headlines.getDescription());
-        txt_content.setText(headlines.getContent());
-        Picasso.get().load(headlines.getUrlToImage()).into(img_news);
     }
 
     @Override
@@ -71,15 +44,42 @@ public class DetailsActivity extends AppCompatActivity{
                 intent.putExtra(Intent.EXTRA_TEXT,shareMessage);
                 startActivity(Intent.createChooser(intent,"Share by"));
             }catch (Exception e){
-                Toast.makeText(DetailsActivity.this, "Error occurred", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Setting.this, "Error occurred", Toast.LENGTH_SHORT).show();
+
             }
-        }
-        else if(id == R.id.setting){
-            Intent i = new Intent(DetailsActivity.this,Setting.class);
+
+        }else if(id == R.id.setting){
+            Intent i = new Intent(Setting.this,Setting.class);
             startActivity(i);
         }else if(id == R.id.exit){
             System.exit(1);
         }
         return true;
+    }
+
+    public void rateus(View view) {
+
+        String rateus = new String("Rate Us");
+
+        Toast.makeText(this, "After the app was uploaded to thr play store "+rateus, Toast.LENGTH_SHORT).show();
+    }
+
+    public void feedback(View view) {
+        /*
+        try {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            String UriText = "mailto :" + Uri.encode("akashap0007@gmail.com") + "?subject="+
+                    Uri.encode("Feedback") +"$body="+ Uri.encode("");
+            Uri uri = Uri.parse(UriText);
+            intent.setData(uri);
+            startActivity(Intent.createChooser(intent,"send email"));
+        }catch (Exception e){
+            Toast.makeText(MainActivity.this, "Error occurred", Toast.LENGTH_SHORT).show();
+        }
+
+         */
+        String feedback = new String("Feedback");
+
+        Toast.makeText(this, "After the app was uploaded to thr play store "+feedback, Toast.LENGTH_SHORT).show();
     }
 }
