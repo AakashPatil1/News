@@ -27,6 +27,7 @@ import java.util.List;
 
 //
 public class MainActivity extends AppCompatActivity implements SelectListener, View.OnClickListener {
+
     RecyclerView recyclerView;
     CustomAdapter adapter;
     ProgressDialog dialog;
@@ -69,34 +70,34 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
             }
         });
         */
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
         //Initialize And Assign Variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
-        bottomNavigationView.setSelectedItemId(R.id.home);
-
-        //Perform ItemSelectedListener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.dashbaord:
-                        startActivity(new Intent(getApplicationContext(),DashBoard.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.home:
-                        return true;
-                    case R.id.calender:
-                        Toast.makeText(MainActivity.this, "Coming Soon" , Toast.LENGTH_SHORT).show();
-                       // startActivity(new Intent(getApplicationContext(),About.class));
-                        //overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
-            }
-        });
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+//
+//        //Set Home Selected
+//        bottomNavigationView.setSelectedItemId(R.id.home);
+//
+//        //Perform ItemSelectedListener
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch (item.getItemId()){
+//                    case R.id.dashbaord:
+//                        startActivity(new Intent(getApplicationContext(),DashBoard.class));
+//                        overridePendingTransition(0,0);
+//                        return true;
+//                    case R.id.home:
+//                        return true;
+//                    case R.id.calender:
+//                        Toast.makeText(MainActivity.this, "Coming Soon" , Toast.LENGTH_SHORT).show();
+//                       // startActivity(new Intent(getApplicationContext(),About.class));
+//                        //overridePendingTransition(0,0);
+//                        return true;
+//                }
+//                return false;
+//            }
+//        });
 
         searchView = findViewById(R.id.search_view);
 
@@ -147,34 +148,13 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if(id == R.id.share){
-            try {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_SUBJECT,"Share demo");
-                String shareMessage = "https://play.google.com/store/apps/details?id="+ BuildConfig.APPLICATION_ID+"\n\n";
-                intent.putExtra(Intent.EXTRA_TEXT,shareMessage);
-                startActivity(Intent.createChooser(intent,"Share by"));
-            }catch (Exception e){
-                Toast.makeText(MainActivity.this, "Error occurred", Toast.LENGTH_SHORT).show();
-            }
-        }else if(id == R.id.setting){
-            Intent i = new Intent(MainActivity.this,Setting.class);
-            startActivity(i);
-        }else if(id == R.id.exit){
-            System.exit(1);
-        }
-        return true;
-    }
 
     private final OnFetchDataListener<NewsApiResponse> listener= new OnFetchDataListener<NewsApiResponse>() {
         @Override
         public void onFetchData(List<NewsHeadlines> list, String message) {
             if (list.isEmpty()){
                 Toast.makeText(MainActivity.this, "No Data Found!!!", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
             }
             else {
                 showNews(list);
@@ -185,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
 
         @Override
         public void onError(String message) {
-            Toast.makeText(MainActivity.this, "An Error Occured!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "An Error Occurred!!!", Toast.LENGTH_SHORT).show();
         }
     };
 

@@ -10,4 +10,13 @@
     <color name="btn">#FFCC7C</color>
     <color name="bg">#475C74</color>
     <color name="card_bg">#AB6C82</color>
+
+
+
+    <color name="background">#FFF8E5</color>
+    <color name="background1">#FFCC7C</color>
+    <color name="cardback">#8AB98F</color>
+    <color name="button">#CA3202</color>
+    <color name="text">#000000</color>
+    <color name="icons">#7F7F7F</color>
 </resources>

@@ -33,35 +33,35 @@ public class DashBoard extends AppCompatActivity {
         setContentView(R.layout.activity_dash_board);
 
         //Initialize
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
-        //Initialize And Assign Variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
-        bottomNavigationView.setSelectedItemId(R.id.dashbaord);
-
-        //Perform ItemSelectedListener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.dashbaord:
-                        return true;
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.calender:
-                        Toast.makeText(getApplicationContext(), "Coming Soon" , Toast.LENGTH_SHORT).show();
-                        //startActivity(new Intent(getApplicationContext(),About.class));
-                        //overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
-            }
-        });
+//        //Initialize And Assign Variable
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+//
+//        //Set Home Selected
+//        bottomNavigationView.setSelectedItemId(R.id.dashbaord);
+//
+//        //Perform ItemSelectedListener
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch (item.getItemId()){
+//                    case R.id.dashbaord:
+//                        return true;
+//                    case R.id.home:
+//                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//                        overridePendingTransition(0,0);
+//                        return true;
+//                    case R.id.calender:
+//                        Toast.makeText(getApplicationContext(), "Coming Soon" , Toast.LENGTH_SHORT).show();
+//                        //startActivity(new Intent(getApplicationContext(),About.class));
+//                        //overridePendingTransition(0,0);
+//                        return true;
+//                }
+//                return false;
+//            }
+//        });
     }
 
     @Override
@@ -86,9 +86,6 @@ public class DashBoard extends AppCompatActivity {
             }
         }else if(id == R.id.exit){
             System.exit(1);
-        }else if(id == R.id.setting){
-            Intent i = new Intent(DashBoard.this,Setting.class);
-            startActivity(i);
         }
         return true;
     }

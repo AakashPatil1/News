@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".FirstScreen">
 
     <ImageView
         android:id="@+id/img"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="500dp"
         android:src="@drawable/newslogo"
         android:layout_centerHorizontal="true"
         />
@@ -24,7 +24,7 @@
         android:layout_below="@id/img"
         android:text="Developed by"
         android:textSize="18sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_marginLeft="150dp"
         android:layout_margin="5dp">
 
@@ -36,7 +36,7 @@
         android:layout_below="@id/img"
         android:text="AAKASH PATIL"
         android:textSize="18sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_marginLeft="150dp"
         android:layout_margin="5dp">
 

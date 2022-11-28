@@ -15,6 +15,10 @@ import android.widget.Toast;
 import com.aakash.news.Models.NewsHeadlines;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import de.hdodenhof.circleimageview.BuildConfig;
 
 public class DetailsActivity extends AppCompatActivity{
@@ -29,8 +33,8 @@ public class DetailsActivity extends AppCompatActivity{
         setContentView(R.layout.activity_details);
 
         //Initialize
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         //Initialize
         txt_title = findViewById(R.id.text_detail_title);
@@ -46,8 +50,8 @@ public class DetailsActivity extends AppCompatActivity{
 
         //set
         txt_title.setText(headlines.getTitle());
-        txt_author.setText(headlines.getAuthor());
-        txt_time.setText(headlines.getPublishedAt());
+        txt_author.setText(headlines.getAuthor()== null ? "unknown" :headlines.getAuthor() );
+        txt_time.setText((headlines.getPublishedAt()));
         txt_detail.setText(headlines.getDescription());
         txt_content.setText(headlines.getContent());
         Picasso.get().load(headlines.getUrlToImage()).into(img_news);
@@ -59,27 +63,10 @@ public class DetailsActivity extends AppCompatActivity{
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if(id == R.id.share){
-            try {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_SUBJECT,"Share demo");
-                String shareMessage = "https://play.google.com/store/apps/details?id="+ BuildConfig.APPLICATION_ID+"\n\n";
-                intent.putExtra(Intent.EXTRA_TEXT,shareMessage);
-                startActivity(Intent.createChooser(intent,"Share by"));
-            }catch (Exception e){
-                Toast.makeText(DetailsActivity.this, "Error occurred", Toast.LENGTH_SHORT).show();
-            }
-        }
-        else if(id == R.id.setting){
-            Intent i = new Intent(DetailsActivity.this,Setting.class);
-            startActivity(i);
-        }else if(id == R.id.exit){
-            System.exit(1);
-        }
-        return true;
+    private String getDateTime(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
+
 }
